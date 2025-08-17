@@ -88,7 +88,7 @@ class Command(BaseModel):
 from pydantic import ValidationError
 
 if __name__ == "__main__":
-    # ✅ Example 1: valid command
+    #  Example 1: valid command
     try:
         cmd = Command(
             steps=[
@@ -111,24 +111,24 @@ if __name__ == "__main__":
                 "accel_scale": 0.5
             }
         )
-        print("✅ Valid Command Parsed:")
+        print("Valid Command Parsed:")
         print(cmd.model_dump_json(indent=2))  # pretty JSON output
 
     except ValidationError as e:
-        print("❌ Validation Error in Example 1:")
+        print("Validation Error in Example 1:")
         print(e)
 
     print("="*50)
 
-    # # ❌ Example 2: invalid command (missing action + wrong type)
+    # # Example 2: invalid command (missing action + wrong type)
     # try:
     #     bad_cmd = Command(
     #         steps=[
     #             Step(
-    #                 pose_xyzrpy="not_a_list"  # ❌ should be List[float]
+    #                 pose_xyzrpy="not_a_list"  #  should be List[float]
     #             )
     #         ]
     #     )
     # except ValidationError as e:
-    #     print("❌ Validation Error in Example 2:")
+    #     print(" Validation Error in Example 2:")
     #     print(e)
